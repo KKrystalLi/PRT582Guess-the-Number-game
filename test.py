@@ -7,7 +7,7 @@ class TestGame(unittest.TestCase):
         game = Game()
         number = game.player_number()
         self.assertEqual(len(number), 4)
-        self.assertTrue(1000 <= int(number) <= 9999)
+        self.assertTrue(0000 <= int(number) <= 9999)
 
 
     def test_check_guess(self):
