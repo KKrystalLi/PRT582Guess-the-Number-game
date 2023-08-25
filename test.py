@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 from game import Game
 
 class TestGame(unittest.TestCase):
@@ -20,11 +21,18 @@ class TestGame(unittest.TestCase):
 
     def test_quit_game(self):
         game = Game()
-
-
         self.assertTrue(game.quit_game('N'))
         self.assertTrue(game.quit_game('N'))
         self.assertFalse(game.quit_game('1234'))
 
+    @patch('builtins.input', return_value='N')
+    def test_game_ends_on_quit(self, mock_input):
+        game = Game()
+        game.play()
+
+
+
 if __name__ == "__main__":
     unittest.main()
+
+
